@@ -32,9 +32,9 @@ function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
     */
     xhttp.setRequestHeader("Content-type", 'text/' + ResponseType);
 	if (AfterFun == "bpjs"){
-		xhttp.setRequestHeader("Accept", "*/*")
-		xhttp.setRequestHeader("Accept-Encoding", "gzip, deflate, br")
-		xhttp.setRequestHeader("Connection", "keep-alive")
+		//xhttp.setRequestHeader("Accept", "*/*")
+		//xhttp.setRequestHeader("Accept-Encoding", "gzip, deflate, br")
+		//xhttp.setRequestHeader("Connection", "keep-alive")
 		
 		xhttp.setRequestHeader("X-cons-id", cons_id)
 		xhttp.setRequestHeader("X-timestamp", timestamp)
