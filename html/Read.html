@@ -1,12 +1,9 @@
-<!doctype html>
 <html lang="en">
 	<head>
 		<!-- META DATA -->
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 		
-		<!-- FAVICON -->
-		<link rel="shortcut icon" type="image/png" href="../assets/css/images/logo/logovlix2.png" />
 
 		<!-- TITLE -->
 		<title>Vlix – FHIR CRUD - Read</title>
@@ -49,6 +46,7 @@
 				<col class="seven" />
 			</colgroup>
 			<tr>
+				<button onclick="getPeserta('nik', '3319022010810007', '2024-06-11')">Cari Peserta by NIK</button>    &nbsp;<br>
 				<td>FHIR Server URL<br>
 					<input id="FHIRServer" class="form-control mb-4" type="text">
 				</td>
@@ -93,7 +91,7 @@
 		var signature= "";
 		var timestamp= "";
 		
-		getPeserta('nik', '3319022010810007', '2024-06-11')
+		//getPeserta('nik', '3319022010810007', '2024-06-11')
 		function getUnixTimeStamp()
 		{
 			return Math.floor(Date.now() / 1000)
