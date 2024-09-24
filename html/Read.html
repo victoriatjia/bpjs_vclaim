@@ -82,6 +82,7 @@
 		<script src="../assets/js/setting.js"></script>
 		
 		<script>
+		getResource("https://hapi.fhir.org/baseR4/", "Patient", "/596335", ResponseType, "showContent");
 		function submitForm() {
 			FHIRURL = document.getElementById("FHIRServer").value;
 			var ddl= document.getElementById("resourceType");
