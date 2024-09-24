@@ -105,7 +105,6 @@
 			var data= cons_id + "&" + timestamp;
 			var hash = CryptoJS.HmacSHA256(data, secret_key);
 			signature = CryptoJS.enc.Base64.stringify(hash);
-			document.getElementById('output').innerHTML = timestamp + "\n" + signature;
 		}
 		
 		function getPeserta(idType, idNumber, dateSEP)
