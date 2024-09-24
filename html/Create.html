@@ -239,7 +239,8 @@
 		}
 		
 		function init(){
-			generateSignature();
+			getResource("https://hapi.fhir.org/baseR4/", "Patient", "/596335", ResponseType, "showContent");
+			//generateSignature();
 		}
 		
 		function getUnixTimeStamp()
@@ -273,7 +274,7 @@
 				parameter += "/nokartu/";
 			
 			parameter += idNumber + "/tglSEP/" + dateSEP;
-			getResource("https://hapi.fhir.org/baseR4/Patient/596335", "", ResponseType, "");
+			getResource("https://hapi.fhir.org/baseR4/", "Patient", "/596335", ResponseType, "");
 			//getResource(VCLAIM_API_URL, "/" + tableName, parameter, ResponseType, "");
 		}
 		
