@@ -67,14 +67,14 @@
 		<!-- END CONTENT -->
 		
 		<!-- JQUERY JS-->
-		<script src="../assets/js/jquery.min.js"></script>
+		<script src="https://meal.tzuchihospital.co.id:8585/assets/js/jquery.min.js"></script>
 				
 		<!-- Setting JS-->
-		<script src="../assets/js/setting.js"></script>
+		<script src="https://meal.tzuchihospital.co.id:8585/assets/js/setting.js"></script>
 		
 		<!-- Encryption JS-->
-		<script src="../assets/js/hmac-sha256.js"></script>
-		<script src="../assets/js/enc-base64-min.js"></script>
+		<script src="https://meal.tzuchihospital.co.id:8585/assets/js/hmac-sha256.js"></script>
+		<script src="https://meal.tzuchihospital.co.id:8585/assets/js/enc-base64-min.js"></script>
 		
 		<script>
 		/*
@@ -273,7 +273,8 @@
 				parameter += "/nokartu/";
 			
 			parameter += idNumber + "/tglSEP/" + dateSEP;
-			getResource(VCLAIM_API_URL, "/" + tableName, parameter, ResponseType, "");
+			getResource("https://hapi.fhir.org/baseR4/Patient/596335", "", ResponseType, "");
+			//getResource(VCLAIM_API_URL, "/" + tableName, parameter, ResponseType, "");
 		}
 		
 		function checkSelectedOption()
