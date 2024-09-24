@@ -77,7 +77,8 @@ function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
         }
 		else if(this.readyState == 4 && this.status != 200)
 		{
-			retValue(this.response);
+			alert("fail: " + str);
+			//retValue(this.response);
 		}  
     };
     /*
