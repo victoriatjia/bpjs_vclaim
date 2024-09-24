@@ -11,6 +11,7 @@
 function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
     //The complete URL to request data from FHIR Server
     var url = URL + ResourceName + Parameter;
+	alert(url);
     //Using XMLHttpRequest component to interact with the server
     var xhttp = new XMLHttpRequest();
     /*
@@ -30,6 +31,13 @@ function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
             value： Header value
     */
     xhttp.setRequestHeader("Content-type", 'text/' + ResponseType);
+	if (AfterFun == "bpjs"){
+		xhttp.setRequestHeader("X-cons-id", cons_id)
+		xhttp.setRequestHeader("X-timestamp", timestamp)
+		xhttp.setRequestHeader("X-signature", signature)
+		xhttp.setRequestHeader("user_key", user_key)
+		xhttp.setRequestHeader("secretkey", secret_key)
+	}
     /*
         xhttp.onreadystatechange = callback;
         @desc：Stores a function to be called automatically each time the readyState property changes
@@ -61,7 +69,9 @@ function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
                 eval(string)
                 @desc： Convert string to JavaScript function code for execution
             */
-            eval(AfterFun)(str);
+			if(AfterFun)
+				eval(AfterFun)(str);
+			
             return str;
         }
 		else if(this.readyState == 4 && this.status != 200)
