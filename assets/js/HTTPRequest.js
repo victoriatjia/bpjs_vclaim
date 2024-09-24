@@ -69,7 +69,8 @@ function getResource(URL, ResourceName, Parameter, ResponseType, AfterFun){
                 eval(string)
                 @desc： Convert string to JavaScript function code for execution
             */
-			if(AfterFun)
+			alert("sukses: " + str);
+			if(AfterFun && AfterFun!= "bpjs")
 				eval(AfterFun)(str);
 			
             return str;
