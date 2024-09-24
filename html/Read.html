@@ -81,8 +81,48 @@
 		<!-- Setting JS-->
 		<script src="../assets/js/setting.js"></script>
 		
+		<!-- Encryption JS-->
+		<script src="../assets/js/hmac-sha256.js"></script>
+		<script src="../assets/js/enc-base64-min.js"></script>
+		
 		<script>
-		getResource("https://hapi.fhir.org/baseR4/", "Patient", "/596335", ResponseType, "showContent");
+		var VCLAIM_API_URL= 'https://apijkn-dev.bpjs-kesehatan.go.id/vclaim-rest-dev'
+		var cons_id= "2907";
+		var user_key= "10cda652f3c52080ecb7e352a8a0cbd8";
+		var secret_key= "2wAB5210A1";
+		var signature= "";
+		var timestamp= "";
+		
+		getPeserta('nik', '3319022010810007', '2024-06-11')
+		function getUnixTimeStamp()
+		{
+			return Math.floor(Date.now() / 1000)
+		}
+		
+		function generateSignature()
+		{
+			timestamp= getUnixTimeStamp();
+			var data= cons_id + "&" + timestamp;
+			var hash = CryptoJS.HmacSHA256(data, secret_key);
+			signature = CryptoJS.enc.Base64.stringify(hash);
+			document.getElementById('output').innerHTML = timestamp + "\n" + signature;
+		}
+		
+		function getPeserta(idType, idNumber, dateSEP)
+		{
+			generateSignature();
+			var tableName= "Peserta";
+			var parameter= "";
+			var searchParameter ;
+			if (idType == "nik" )
+				parameter += "/nik/";
+			else if (idType == "noka" )
+				parameter += "/nokartu/";
+			
+			parameter += idNumber + "/tglSEP/" + dateSEP;
+			getResource(VCLAIM_API_URL, "/" + tableName, parameter, ResponseType, "");
+		}
+		
 		function submitForm() {
 			FHIRURL = document.getElementById("FHIRServer").value;
 			var ddl= document.getElementById("resourceType");
