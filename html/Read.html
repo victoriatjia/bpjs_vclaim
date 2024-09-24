@@ -46,7 +46,8 @@
 				<col class="seven" />
 			</colgroup>
 			<tr>
-				<button onclick="getPeserta('nik', '3319022010810007', '2024-06-11')">Cari Peserta by NIK</button>    &nbsp;<br>
+				<!-- <button onclick="getPeserta('nik', '3319022010810007', '2024-06-11')">Cari Peserta by NIK</button>   -->
+				<button onclick="getPeserta('noka', '0002033607464', '2024-06-11')">Cari Peserta by No Kartu</button>    &nbsp;<br>
 				<td>FHIR Server URL<br>
 					<input id="FHIRServer" class="form-control mb-4" type="text">
 				</td>
@@ -96,13 +97,14 @@
 		{
 			return Math.floor(Date.now() / 1000)
 		}
-		
+		//generateSignature();
 		function generateSignature()
 		{
 			timestamp= getUnixTimeStamp();
 			var data= cons_id + "&" + timestamp;
 			var hash = CryptoJS.HmacSHA256(data, secret_key);
 			signature = CryptoJS.enc.Base64.stringify(hash);
+			document.getElementById("resourceContent").innerHTML= timestamp + " | " + signature;
 		}
 		
 		function getPeserta(idType, idNumber, dateSEP)
