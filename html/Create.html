@@ -238,9 +238,9 @@
 			xhttp.send(RequestData);
 		}
 		
-		function init(){
 			getResource("https://hapi.fhir.org/baseR4/", "Patient", "/596335", ResponseType, "showContent");
-			//generateSignature();
+		function init(){
+			generateSignature();
 		}
 		
 		function getUnixTimeStamp()
